@@ -1,6 +1,7 @@
 
 feature 'adding links' do
   scenario 'add new url and title' do
+    p "pie2"
     visit ("/links/new")
     fill_in :url, with: 'www.bbc.co.uk'
     fill_in :title, with: 'BBC'
