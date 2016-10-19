@@ -6,6 +6,6 @@ class Tag
 
   property :id,     Serial
   property :tag,    String
-  belongs_to :link, required: true
+
 
 end
