@@ -1,4 +1,3 @@
-require './app/app.rb'
 
 feature 'adding links' do
   scenario 'add new url and title' do
