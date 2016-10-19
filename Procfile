@@ -1,1 +1,1 @@
-web: gem install bundler && bundle install && ruby './app/app.rb'
+web: bundle exec ruby './app/app.rb' -p $PORT
