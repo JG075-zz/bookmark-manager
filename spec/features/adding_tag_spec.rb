@@ -7,7 +7,7 @@ feature 'adding tags to links' do
       fill_in :tags, with: 'News'
       click_button 'Add Link'
       link = Link.first
-      expect(link.tags.map(&:tag)).to include('News')
+      expect(link.tags.map(&:name)).to include('News')
 
   end
 end
