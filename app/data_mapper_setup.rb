@@ -6,6 +6,7 @@ DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/bookmark
 # DataMapper::Logger.new($stdout, :debug)
 require_relative './models/link'
 require_relative './models/tag'
+require_relative './models/user'
 
 DataMapper.finalize
 DataMapper.auto_upgrade!

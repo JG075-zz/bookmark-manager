@@ -36,6 +36,16 @@ class BookmarkManager < Sinatra::Base
     erb :'links/index'
   end
 
+  get '/signup' do
+    erb :'links/signup'
+  end
+
+  post '/signup' do
+    user = User.new(username: params[:username], password: params[:password])
+    user.save
+    redirect to('/links')
+  end
+
   # start the server if ruby file executed directly
   run! if app_file == $0
 end
