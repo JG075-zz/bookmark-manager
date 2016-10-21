@@ -9,6 +9,6 @@ feature 'adding a user account' do
       user = User.first
       expect(user.username).to include('bobthepanda@email.com')
       expect(page).to have_content('Welcome')
-      expect(page).to have_content('Welcome bobthepanda@email.com')
+      expect(page).to have_content('Welcome, bobthepanda@email.com')
   end
 end

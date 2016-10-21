@@ -10,8 +10,10 @@
   }
 </style>
 
-<h1>Welcome <%=@username%></h1>
-  <ul id='links'>
+<% if current_user %>
+      Welcome, <%= current_user.username %>
+<% end %>
+    <ul id='links'>
     <% @links.each do |link| %>
     <li>
       Title: <%=link.title%>
