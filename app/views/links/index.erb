@@ -16,11 +16,12 @@
           Title: <%=link.title%>
           URL: <a href="<%=link.url%>"><%=link.url%></a>
           Tag: <% link.tags.each do |tag| %>
-          <%= tag.name %>
+          <%= "#{tag.name}" %><% unless tag.equal? link.tags.last %><%= "," %><% end %>
           <% end %>
         </li>
         <% end %>
       </ul>
     <a href="/links/new"><button>Add new link</button></a>
+    <a href="/signup"><button>Signup</button></a>
   </body>
 </html>
