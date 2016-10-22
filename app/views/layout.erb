@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Bookmark Manager</title>
+    <link href="<%= url('/css/style.css') %>" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <% if current_user %>
+      Welcome, <%= current_user.username %>
+    <% end %>
+    <%= yield %>  <!-- this then yields to the view which has been called by your controller -->
+  </body>
+</html>

@@ -44,11 +44,11 @@ class BookmarkManager < Sinatra::Base
     erb :'links/index'
   end
 
-  get '/signup' do
-    erb :'links/signup'
+  get '/users/new' do
+    erb :'users/new'
   end
 
-  post '/signup' do
+  post '/users' do
     user = User.new(username: params[:username], password: params[:password])
     user.save
     session[:user_id] = user.id
