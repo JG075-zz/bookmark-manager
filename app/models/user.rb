@@ -1,4 +1,5 @@
 require 'bcrypt'
+require 'dm-validations'
 require './app/data_mapper_setup'
 
 class User
@@ -8,7 +9,13 @@ class User
   property :username, String
   property :password_digest, Text
 
+  validates_confirmation_of :password
+
+  attr_reader :password
+  attr_accessor :password_confirmation
+
   def password=(password)
+    @password = password
     self.password_digest = BCrypt::Password.create(password)
   end
 end

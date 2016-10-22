@@ -9,7 +9,7 @@ require 'capybara/rspec'
 require 'rspec'
 require 'database_cleaner'
 require_relative './support/database_cleaner'
-require_relative './features/web_helpers'
+require_relative './features/web_helper'
 require './app/app.rb'
 require './app/data_mapper_setup'
 

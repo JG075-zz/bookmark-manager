@@ -4,4 +4,12 @@ feature 'User sign up' do
     expect(page).to have_content('Welcome, alice@example.com')
     expect(User.first.username).to eq('alice@example.com')
   end
+
+  scenario "I can't sign up if I give a wrong password" do
+    visit '/users/new'
+    fill_in :username,    with: 'alice@example.com'
+    fill_in :password, with: 'oranges!'
+    fill_in :password_confirmation, with: 'apples!'
+    expect { click_button 'Submit' }.not_to change(User, :count)
+  end
 end
