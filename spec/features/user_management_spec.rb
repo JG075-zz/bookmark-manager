@@ -11,5 +11,7 @@ feature 'User sign up' do
     fill_in :password, with: 'oranges!'
     fill_in :password_confirmation, with: 'apples!'
     expect { click_button 'Submit' }.not_to change(User, :count)
+    expect(page).to have_current_path('/users')
+    expect(page).to have_content('Password and confirmation password do not match')
   end
 end

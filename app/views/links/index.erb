@@ -7,7 +7,7 @@
         <li>
           Title: <%=link.title%>
           URL: <a href="<%=link.url%>"><%=link.url%></a>
-          Tag: <% link.tags.each do |tag| %>
+          Tags: <% link.tags.each do |tag| %>
           <%= "#{tag.name}" %><% unless tag.equal? link.tags.last %><%= "," %><% end %>
           <% end %>
         </li>
