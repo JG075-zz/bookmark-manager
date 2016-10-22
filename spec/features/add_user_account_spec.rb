@@ -1,6 +1,5 @@
 feature 'adding a user account' do
   scenario 'when a user enters email and password' do
-
       visit "/signup"
       fill_in :username, with: 'bobthepanda@email.com'
       fill_in :password, with: 'Pandas4Life'

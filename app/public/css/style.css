@@ -1,0 +1,10 @@
+body {
+  border: 1px solid red;
+  background: url('https://prodigalthought.files.wordpress.com/2015/12/book-stack.jpg?w=950');
+  background-size: cover;
+  color: #fff;
+}
+
+a {
+  color: #e8dca7;
+}

@@ -1,11 +1,6 @@
-
 feature 'adding links' do
   scenario 'add new url and title' do
-    p "pie2"
-    visit ("/links/new")
-    fill_in :url, with: 'www.bbc.co.uk'
-    fill_in :title, with: 'BBC'
-    click_button 'Add Link'
+    add_new_link
     expect(page).to have_content('Title: BBC URL: www.bbc.co.uk')
   end
 end
