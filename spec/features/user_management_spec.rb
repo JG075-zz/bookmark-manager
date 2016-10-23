@@ -50,11 +50,19 @@ feature 'User login' do
     sign_in(username: user.username, password: user.password)
     expect(page).to have_content("Welcome, #{user.username}")
   end
+end
 
-  def sign_in(username:, password:)
-    visit '/sessions/new'
-    fill_in :username, with: username
-    fill_in :password, with: password
-    click_button 'Submit'
+feature 'User sign out' do
+  before(:each) do
+    User.create(username: 'testmail@mail.com',
+    password: 'apples',
+    password_confirmation: 'apples')
+  end
+
+  scenario 'when logged in' do
+    sign_in(username: 'testmail@mail.com', password: 'apples')
+    click_button 'Sign out'
+    expect(page).to have_content("You signed out. Thanks for using Bookmark Manager")
+    expect(page).not_to have_content("Welcome, testmail@mail.com")
   end
 end

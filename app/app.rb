@@ -5,6 +5,7 @@ require 'sinatra/flash'
 require_relative './data_mapper_setup'
 
 class BookmarkManager < Sinatra::Base
+  use Rack::MethodOverride
   enable :sessions
   register Sinatra::Flash
 
@@ -65,6 +66,12 @@ class BookmarkManager < Sinatra::Base
 
   get '/sessions/new' do
     erb :'sessions/new'
+  end
+
+  delete '/sessions' do
+    session[:user_id] = nil
+    flash.keep[:notice] = 'You signed out. Thanks for using Bookmark Manager'
+    redirect to('/links')
   end
 
   post '/sessions' do
