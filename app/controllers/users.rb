@@ -1,3 +1,5 @@
+require './app/lib/send_recover_link'
+
 class BookmarkManager < Sinatra::Base
   post '/users' do
     @user = User.new(username: params[:username], password: params[:password], password_confirmation: params[:password_confirmation])
@@ -33,11 +35,10 @@ class BookmarkManager < Sinatra::Base
 
   post '/users/recover' do
     user = User.first(username: params[:email])
-
     if user
       user.generate_token
+      SendRecoverLink.call(user)
     end
-
     erb :'users/achknowledgement'
   end
 
