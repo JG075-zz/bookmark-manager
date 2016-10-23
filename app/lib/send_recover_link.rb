@@ -14,7 +14,7 @@ class SendRecoverLink
     mailer.send_message(ENV["MAILGUN_DOMAIN"], {from: 'mailgun@sandbox4ea7364b34d64c608f3cc57a4b2699f6.mailgun.org',
               to: user.username,
               subject: 'reset your password',
-              text: "click here to reset your password https://jg075-bookmark-manager.herokuapp.com/reset_password?token=#{user.password_token}"})
+              text: "click here to reset your password https://jg075-bookmark-manager.herokuapp.com/users/reset_password?token=#{user.password_token}"})
   end
 
   private

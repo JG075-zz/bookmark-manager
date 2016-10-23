@@ -81,5 +81,4 @@ feature "Password reset" do
     fill_in :email, with: 'alice@example.com'
     click_button 'Submit'
   end
-
 end
