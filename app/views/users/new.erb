@@ -4,11 +4,11 @@
     <h1>Please enter your username and password</h1>
     <form action="/users" method="post">
       <label for="username">Username</label>
-      <input name="username" type="text" value="<%= flash.now[:notice] ? @user.username : "enter email" %>" />
+      <input name="username" type="email" value="<%= @user.username %>" placeholder="enter email" required>
       <label for="password">Password</label>
-      <input name="password" type="text" value="enter password" />
+      <input name="password" type="text" placeholder="enter password" required>
       <label for="password_confirmation">Confirm Password</label>
-      <input name="password_confirmation" type="text" value="confirm password" />
+      <input name="password_confirmation" type="text" placeholder="confirm password" required>
       <input class="button" type="submit" value="Submit"/>
     </form>
   </body>

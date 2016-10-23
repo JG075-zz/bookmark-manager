@@ -6,9 +6,10 @@ class User
   include DataMapper::Resource
 
   property :id, Serial
-  property :username, String
+  property :username, String, required: true
   property :password_digest, Text
 
+  validates_format_of :username, :as => :email_address
   validates_confirmation_of :password
 
   attr_reader :password
