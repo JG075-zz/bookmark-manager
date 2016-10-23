@@ -3,11 +3,12 @@ source "https://rubygems.org"
 ruby '2.3.1'
 
 gem "sinatra"
+gem "sinatra-flash"
+gem 'sinatra-partial'
 gem "dm-postgres-adapter"
 gem "data_mapper"
 gem "rake"
 gem "bcrypt"
-gem "sinatra-flash"
 
 group :test do
   gem 'database_cleaner'
