@@ -1,10 +1,8 @@
 require 'mailgun'
-require 'dotenv'
-Dotenv.load
 
 class SendRecoverLink
   def initialize(mailer: nil)
-    @mailer = mailer || Mailgun::Client.new("key-501dbef87817211f0933f9fde2d061f2")
+    @mailer = mailer || Mailgun::Client.new(ENV["MAILGUN_API"])
   end
 
   def self.call(user, mailer = nil)
@@ -12,8 +10,9 @@ class SendRecoverLink
   end
 
   def call(user)
-    mailer.send_message("sandbox4ea7364b34d64c608f3cc57a4b2699f6.mailgun.org/messages", {from: 'mailgun@sandbox4ea7364b34d64c608f3cc57a4b2699f6.mailgun.org',
-              to: 'jamesgardiner075@gmail.com',
+    p user.username
+    mailer.send_message(ENV["MAILGUN_DOMAIN"], {from: 'mailgun@sandbox4ea7364b34d64c608f3cc57a4b2699f6.mailgun.org',
+              to: user.username,
               subject: 'reset your password',
               text: "click here to reset your password https://jg075-bookmark-manager.herokuapp.com/reset_password?token=#{user.password_token}"})
   end
