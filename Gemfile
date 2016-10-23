@@ -2,7 +2,7 @@ source "https://rubygems.org"
 
 ruby '2.3.1'
 
-gem 'dotenv-rails'
+gem 'dotenv'
 gem "sinatra"
 gem "sinatra-flash"
 gem 'sinatra-partial'
