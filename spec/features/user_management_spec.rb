@@ -12,7 +12,7 @@ feature 'User sign up' do
     fill_in :password_confirmation, with: 'apples!'
     expect { click_button 'Submit' }.not_to change(User, :count)
     expect(page).to have_current_path('/users')
-    expect(page).to have_content('Password and confirmation password do not match')
+    expect(page).to have_content('Password does not match the confirmation')
   end
 
   scenario 'sign up with a blank email address' do
@@ -30,5 +30,11 @@ feature 'User sign up' do
     fill_in :password_confirmation, with: 'oranges!'
     expect { click_button 'Submit' }.not_to change(User, :count)
     expect(page).to have_current_path('/users')
+  end
+
+  scenario 'sign up with an already registered email' do
+    sign_up
+    expect { sign_up }.not_to change(User, :count)
+    expect(page).to have_content('Username is already taken')
   end
 end

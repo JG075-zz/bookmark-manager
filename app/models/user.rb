@@ -10,6 +10,7 @@ class User
   property :password_digest, Text
 
   validates_format_of :username, :as => :email_address
+  validates_uniqueness_of :username
   validates_confirmation_of :password
 
   attr_reader :password

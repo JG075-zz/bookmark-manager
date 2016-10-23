@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <body>
+    <% @user.errors.each { |p| puts p} %> 
     <h1>Please enter your username and password</h1>
     <form action="/users" method="post">
       <label for="username">Username</label>
